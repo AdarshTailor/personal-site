@@ -57,17 +57,14 @@ Then open http://localhost:8000.
 
 ## Live site
 
-**https://adarshtailor.github.io**, served by GitHub Pages from the `main` branch of `AdarshTailor/AdarshTailor.github.io`.
+**https://adarshtailor.com** (and www.adarshtailor.com), hosted on **Cloudflare Pages** (project `adarshtailor`, also at adarshtailor.pages.dev). Code lives in the GitHub repo `AdarshTailor/AdarshTailor.github.io`.
 
 ### Publishing an update
 
 ```bash
-cd ~/Desktop/portfolio-site && node build.mjs && git add -A && git commit -m "Update site" && git push
+cd ~/Desktop/portfolio-site && git add -A && git commit -m "Update site" && git push
 ```
 
-The live site refreshes about a minute after the push.
+Cloudflare sees the push, runs `node build.mjs` itself, and publishes in about a minute. (Running `node build.mjs` locally first is still handy for previewing, but not required.)
 
 **Never published:** `TODO.md`, `PINCH_PLAN.md`, `HALLMARK_AUDIT.md` and the `.hallmark/` and `.claude/` folders are listed in `.gitignore`, so they stay on this computer.
-
-### Custom domain (later)
-Buy `adarshtailor.com`, then in the repo go to **Settings → Pages → Custom domain**, and add the DNS records GitHub shows at your registrar.
