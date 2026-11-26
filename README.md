@@ -55,11 +55,19 @@ python3 -m http.server 8000
 
 Then open http://localhost:8000.
 
-## Put it online for free (GitHub Pages)
+## Live site
 
-1. Create a public GitHub repo named `<your-github-username>.github.io`.
-2. Upload these files. If you ever want a résumé link or email button, set `resumeUrl` / `email` in `data.js`. Both are off by default.
-3. In the repo, go to **Settings → Pages** and set the source to the `main` branch.
-4. The site goes live at `https://<your-github-username>.github.io`.
+**https://adarshtailor.github.io**, served by GitHub Pages from the `main` branch of `AdarshTailor/AdarshTailor.github.io`.
 
-To update later, edit `data.js`, run `node build.mjs`, then commit and push. The site updates in about a minute.
+### Publishing an update
+
+```bash
+cd ~/Desktop/portfolio-site && node build.mjs && git add -A && git commit -m "Update site" && git push
+```
+
+The live site refreshes about a minute after the push.
+
+**Never published:** `TODO.md`, `PINCH_PLAN.md`, `HALLMARK_AUDIT.md` and the `.hallmark/` and `.claude/` folders are listed in `.gitignore`, so they stay on this computer.
+
+### Custom domain (later)
+Buy `adarshtailor.com`, then in the repo go to **Settings → Pages → Custom domain**, and add the DNS records GitHub shows at your registrar.
