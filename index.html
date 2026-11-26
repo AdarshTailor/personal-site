@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="theme-color" content="#0a1014" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adarsh Tailor</title>
+  <meta name="description" content="What I’ve built, what I’m building, and notes along the way." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- index.html is generated from template.html + data.js by `node build.mjs`. Edit those, not index.html. -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="repo" id="repo">adarshtailor</a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="#now">Now</a>
+        <a href="#projects">Projects</a>
+        <a href="#notes">Notes</a>
+        <span id="nav-extra"></span>
+        <a href="#contact">Connect</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <div class="hero-left">
+        <div class="intro-row">
+          <span id="photo-slot"><img class="avatar" src="images/profile.jpg" alt="Photo of Adarsh Tailor" width="96" height="96" /></span>
+          <p class="pill pill-status" id="status">Open to opportunities in DFW or remote</p>
+        </div>
+        <h1 id="name">hey, I’m Adarsh.</h1>
+        <p class="headline" id="headline">Builder. AI engineer at RTR. Learning game dev.</p>
+        <p class="tagline" id="tagline">I build software people actually use. At work, that’s ERICS, the AI platform about 300 coworkers rely on. On my own time, it’s gesture-controlled windows, Unreal Engine, and small games. This site is where I keep track of all of it.</p>
+        <div class="links contact-actions" id="links"><a class="btn btn-primary" href="https://www.linkedin.com/in/adarshtailor/" target="_blank" rel="noopener">LinkedIn</a><a class="btn btn-ghost" href="https://github.com/AdarshTailor" target="_blank" rel="noopener">GitHub</a><a class="btn btn-ghost" href="mailto:Adarshtailor@icloud.com">Email</a></div>
+      </div>
+
+      <div class="console" aria-label="Ask about me">
+        <p class="console-bar">ask</p>
+        <form class="console-input" id="ask-form">
+          <span class="prompt" aria-hidden="true">&gt;</span>
+          <input id="ask-input" autocomplete="off" placeholder="Ask me something…" aria-label="Your question" />
+          <button type="submit" class="run">Ask</button>
+        </form>
+        <div class="suggestions" id="suggestions"></div>
+        <div class="console-out" id="ask-out" aria-live="polite"></div>
+        <p class="console-note">A tiny retrieval engine I wrote. It runs in your browser and answers from this site’s content.</p>
+      </div>
+    </section>
+
+    <div class="card-layout container">
+      <nav class="toc" aria-label="On this page">
+        <p class="toc-title">On this page</p>
+        <a href="#now">Now</a>
+        <a href="#about">About</a>
+        <a href="#skills-section">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#playground">Playground</a>
+        <a href="#notes">Notes</a>
+        <a href="#experience">Experience</a>
+        <a href="#roadmap-section">Roadmap</a>
+        <a href="#contact">Let’s connect</a>
+      </nav>
+
+      <div class="card-body">
+        <section id="now" class="section">
+          <h2>Now</h2>
+          <p class="sub" id="now-updated">Updated 2026-11.</p>
+          <div class="now" id="now-list"><div class="now-item"><h3 class="k">Up next</h3><p>Pinch: projecting my desktop onto a wall and moving windows around by pinching in the air.</p></div><div class="now-item"><h3 class="k">Learning</h3><p>Unreal Engine, and building small games to try ideas quickly.</p></div><div class="now-item"><h3 class="k">At work</h3><p>Running and growing ERICS at Real Time Resolutions.</p></div><div class="now-item"><h3 class="k">Recently</h3><p>Graduated from UT Arlington (May 2026) and earned Azure AI Fundamentals (Oct 2026).</p></div></div>
+        </section>
+
+        <section id="about" class="section">
+          <h2>About</h2>
+          <p class="lead" id="about-text">I’m a builder based in Dallas. I studied Information Systems at UT Arlington, started out in cybersecurity, and ended up building my company’s first AI platform. I like figuring out what people actually need, building it quickly, and owning it once it’s live, whether that’s an internal tool, a hardware experiment, or a small game.</p>
+          <p class="lead" id="about-personal"></p>
+          <h3 class="group-title">What I like working on</h3>
+          <div class="roles" id="focus"><div class="role"><h4>Tools people use every day</h4><p>Sitting with a team, finding the tedious part, and making it go away.</p></div><div class="role"><h4>AI &amp; automation</h4><p>Agents, search over documents, and the guardrails that make them trustworthy.</p></div><div class="role"><h4>Interactive &amp; 3D</h4><p>Gesture interfaces, small games, and learning Unreal Engine.</p></div><div class="role"><h4>Infrastructure &amp; security</h4><p>Linux, Kubernetes, monitoring, and keeping data where it belongs.</p></div></div>
+          <div class="background" id="background"><dl class="kv"><dt>Education</dt><dd>B.S. Information Systems, The University of Texas at Arlington (May 2026). Before that: The University of Texas at Dallas (2018 to 2020).</dd><dt>Certifications</dt><dd>Microsoft Certified: Azure AI Fundamentals (AI-901), Oct 2026</dd><dt>Based in</dt><dd>Dallas-Fort Worth, open to on-site, hybrid, or remote</dd></dl></div>
+        </section>
+
+        <section id="skills-section" class="section">
+          <h2>Skills</h2>
+          <div class="skills" id="skills"><div class="skill-row"><h3 class="k">Languages</h3><div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">JavaScript</span><span class="chip">Node.js</span><span class="chip">Java</span><span class="chip">C / C++</span><span class="chip">Swift</span><span class="chip">HTML / CSS</span></div></div><div class="skill-row"><h3 class="k">AI &amp; automation</h3><div class="chips"><span class="chip">vLLM</span><span class="chip">LangChain</span><span class="chip">MCP</span><span class="chip">RAGFlow</span><span class="chip">n8n</span><span class="chip">Microsoft Foundry</span><span class="chip">Prompt engineering</span></div></div><div class="skill-row"><h3 class="k">Infrastructure</h3><div class="chips"><span class="chip">Linux</span><span class="chip">Kubernetes (k3s)</span><span class="chip">Docker</span><span class="chip">Prometheus</span><span class="chip">GitHub CI/CD</span><span class="chip">Azure</span></div></div><div class="skill-row"><h3 class="k">Security</h3><div class="chips"><span class="chip">NIST</span><span class="chip">ISO 27001</span><span class="chip">Entra ID</span><span class="chip">Active Directory</span><span class="chip">Tines</span></div></div><div class="skill-row"><h3 class="k">Ways of working</h3><div class="chips"><span class="chip">Requirements discovery</span><span class="chip">Rapid prototyping</span><span class="chip">Owning it in production</span></div></div><div class="skill-row"><h3 class="k">Learning</h3><div class="chips"><span class="chip">Unreal Engine</span><span class="chip">Game development</span></div></div></div>
+        </section>
+
+        <section id="projects" class="section">
+          <h2>Projects</h2>
+          <div class="filters" id="filters" role="group" aria-label="Filter projects by tag"><button type="button" class="filter active" data-tag="all" aria-pressed="true">all</button><button type="button" class="filter" data-tag="AI" aria-pressed="false">AI</button><button type="button" class="filter" data-tag="Automation" aria-pressed="false">Automation</button><button type="button" class="filter" data-tag="Computer vision" aria-pressed="false">Computer vision</button><button type="button" class="filter" data-tag="Full-stack" aria-pressed="false">Full-stack</button><button type="button" class="filter" data-tag="Hackathon" aria-pressed="false">Hackathon</button><button type="button" class="filter" data-tag="Hardware" aria-pressed="false">Hardware</button><button type="button" class="filter" data-tag="Home automation" aria-pressed="false">Home automation</button><button type="button" class="filter" data-tag="Infrastructure" aria-pressed="false">Infrastructure</button><button type="button" class="filter" data-tag="Raspberry Pi" aria-pressed="false">Raspberry Pi</button><button type="button" class="filter" data-tag="Security" aria-pressed="false">Security</button></div>
+          <div class="evals" id="evals"><h3 class="group-title">Personal builds <span class="count">3</span></h3>
+      <article class="eval no-img" id="p-pinch">
+        
+        <div class="eval-body">
+          <p class="eval-id"><span class="badge badge-planned">planned</span></p>
+          <h3>Pinch</h3>
+          <p>Project my desktop onto a wall and move, resize, and arrange windows by pinching in the air, with an AI layer so I can say things like “put these side by side.”</p>
+          <ul><li>Webcam hand tracking that turns pinches into window controls</li><li>Voice or gesture commands handled by a local model</li></ul>
+          <div class="chips"><span class="chip">Computer vision</span><span class="chip">Hardware</span><span class="chip">AI</span></div>
+          
+        </div>
+      </article>
+      <article class="eval no-img" id="p-hackdfw-real-time-medical-inventory">
+        
+        <div class="eval-body">
+          <p class="eval-id"><time>2022-10</time></p>
+          <h3>HackDFW: Real-Time Medical Inventory</h3>
+          <p>A hackathon app for tracking hospital staff and inventory, with a visit log so patients can see who came to their room and follow up with the right specialist.</p>
+          <dl class="metrics"><div class="metric"><dt>McKesson challenge</dt><dd>1st</dd></div></dl><ul><li>JavaScript/jQuery, Node/Express and MySQL, deployed on AWS in Docker</li></ul>
+          <div class="chips"><span class="chip">Hackathon</span><span class="chip">Full-stack</span></div>
+          
+        </div>
+      </article>
+      <article class="eval no-img" id="p-smart-home-bridge-apple-homekit">
+        
+        <div class="eval-body">
+          
+          <h3>Smart Home Bridge (Apple HomeKit)</h3>
+          <p>Brought devices that don’t support Apple HomeKit, like a MyQ garage opener, into HomeKit with a Raspberry Pi, so the whole house could be controlled from one place.</p>
+          <ul><li>Automations triggered by motion, geofencing, and manual input across the Raspberry Pi and Apple devices</li></ul>
+          <div class="chips"><span class="chip">Hardware</span><span class="chip">Raspberry Pi</span><span class="chip">Home automation</span></div>
+          
+        </div>
+      </article><h3 class="group-title">Work <span class="count">3</span></h3>
+      <article class="eval no-img" id="p-erics-company-ai-platform">
+        
+        <div class="eval-body">
+          <p class="eval-id"><time>2026-05</time></p>
+          <h3>ERICS: Company AI Platform</h3>
+          <p>The internal AI platform at Real Time Resolutions. I pitched it, built it, and still run it solo. It answers questions from company documents, and no data leaves the network.</p>
+          <dl class="metrics"><div class="metric"><dt>users</dt><dd>~300</dd></div><div class="metric"><dt>departments</dt><dd>15</dd></div><div class="metric"><dt>budget secured</dt><dd>$12K</dd></div></dl><ul><li>Self-hosted Qwen 3.8 27B (dense) on vLLM, migrated from Llama 3.3 70B</li><li>Runs on k3s with Prometheus monitoring. Sensitive data is masked before it reaches the model.</li></ul>
+          <div class="chips"><span class="chip">AI</span><span class="chip">Infrastructure</span><span class="chip">Security</span></div>
+          
+        </div>
+      </article>
+      <article class="eval no-img" id="p-document-classification-pipeline">
+        
+        <div class="eval-body">
+          <p class="eval-id"><time>2026-08</time></p>
+          <h3>Document Classification Pipeline</h3>
+          <p>Automatically sorts incoming documents, with quality checks before each release and a daily review that suggests fixes for a person to approve.</p>
+          <dl class="metrics"><div class="metric"><dt>accuracy</dt><dd>97%</dd></div></dl>
+          <div class="chips"><span class="chip">AI</span><span class="chip">Automation</span></div>
+          
+        </div>
+      </article>
+      <article class="eval no-img" id="p-workflow-automations-integrations">
+        
+        <div class="eval-body">
+          <p class="eval-id"><time>2026-06</time></p>
+          <h3>Workflow Automations &amp; Integrations</h3>
+          <p>I sat with departments one at a time, learned their daily work, then automated the tedious parts with agents and n8n, connected to Microsoft 365, SQL, and Tines.</p>
+          <dl class="metrics"><div class="metric"><dt>of changes human-approved</dt><dd>100%</dd></div></dl><ul><li>Read-only database access and an approval step for every action, designed with the CISO</li></ul>
+          <div class="chips"><span class="chip">Automation</span><span class="chip">AI</span><span class="chip">Security</span></div>
+          
+        </div>
+      </article></div>
+        </section>
+
+        <section id="playground" class="section">
+          <h2>Playground</h2>
+          <p class="sub">Small games and experiments.</p>
+          <div class="play-grid" id="playground-grid"><p class="play-empty">Nothing here yet. Small games and experiments, starting with my first steps in Unreal Engine, will land here as I build them. Follow along in <a href="#notes">Notes</a>.</p></div>
+        </section>
+
+        <section id="notes" class="section">
+          <h2>Notes</h2>
+          <p class="sub" id="log-filter-label">A running log.</p>
+          <ol class="log" id="log"><li><p class="when"><time>2026-10</time><span class="tag">cert</span></p><p>Earned Microsoft Certified: Azure AI Fundamentals (AI-901).</p></li><li><p class="when"><time>2026-05</time><span class="tag">milestone</span></p><p>Graduated with a B.S. in Information Systems from UT Arlington and went full-time at Real Time Resolutions.</p></li><li><p class="when"><time>2026</time><span class="tag">work</span></p><p>Moved ERICS from Llama 3.3 70B to Qwen 3.8 27B (dense), served with vLLM on a 96GB RTX PRO 6000 Blackwell.</p></li><li><p class="when"><time>2026</time><span class="tag">work</span></p><p>Moved ERICS from Docker Compose to k3s and added Prometheus monitoring and CI/CD.</p></li><li><p class="when"><time>2025-05</time><span class="tag">milestone</span></p><p>Started as a Cybersecurity Analyst Intern, pitched on-prem AI to leadership, and got $12K to build it.</p></li><li><button type="button" class="log-more" id="log-more">Show all 9 notes</button></li></ol>
+        </section>
+
+        <section id="experience" class="section">
+          <h2>Experience</h2>
+          <ol class="changelog" id="experience-list"><li>
+        <p class="ver"><time>May 2026 to now</time></p>
+        <div><h3>Associate AI Analyst</h3><p class="org">Real Time Resolutions, Inc.</p><p>Own the company’s AI platform and workflow automations, from talking to teams through to running it in production.</p></div>
+      </li><li>
+        <p class="ver"><time>May 2025 to May 2026</time></p>
+        <div><h3>Cybersecurity Analyst Intern</h3><p class="org">Real Time Resolutions, Inc.</p><p>Ran a gap assessment across 700+ endpoints and raised compliance from 82% to 97% in 90 days. Coordinated a Windows 11 rollout to 700+ workstations with zero downtime. Pitched and launched the first AI platform.</p></div>
+      </li><li>
+        <p class="ver"><time>Mar to May 2024</time></p>
+        <div><h3>IT Support Specialist</h3><p class="org">Dossani Paradise</p><p>Wrote API scripts connecting Monday.com to daily reporting (25% faster tracking). Supported 50+ users and cut downtime by about 20%.</p></div>
+      </li><li>
+        <p class="ver"><time>Jun to Aug 2023</time></p>
+        <div><h3>QA Intern</h3><p class="org">Sysintelli Inc.</p><p>Wrote stress tests that pushed a patient-records system past 10,000 concurrent records. Detailed bug reports cut debugging time by about 25%.</p></div>
+      </li><li>
+        <p class="ver"><time>2016 to 2024</time></p>
+        <div><h3>Manager, operations and IT</h3><p class="org">Nu-Way, Joaquin, TX (family business)</p><p>Helped run the family store while in school. Set up the computers, networking and point-of-sale, managed finances and inventory, and grew sales 40 to 60% by reworking the layout and systems and cutting costs.</p></div>
+      </li></ol>
+        </section>
+
+        <section id="roadmap-section" class="section">
+          <h2>Roadmap</h2>
+          <p class="sub">What’s next.</p>
+          <ul class="roadmap" id="roadmap"><li><span class="rm-status rm-planned">planned</span><span class="rm-item">Build Pinch: gesture-controlled projected windows</span></li><li><span class="rm-status rm-planned">planned</span><span class="rm-item">Learn Unreal Engine and ship a small playable scene</span></li><li><span class="rm-status rm-planned">planned</span><span class="rm-item">Make small games and experiments, and post them to the Playground</span></li></ul>
+        </section>
+
+        <section id="contact" class="section contact">
+          <h2>Let’s connect!</h2>
+          <p id="contact-blurb">Working on something cool, curious about one of my projects, or just want to swap ideas? I’m always up for a conversation.</p>
+          <div class="contact-actions" id="connect-links"><a class="btn btn-primary" href="https://www.linkedin.com/in/adarshtailor/" target="_blank" rel="noopener">LinkedIn</a><a class="btn btn-ghost" href="https://github.com/AdarshTailor" target="_blank" rel="noopener">GitHub</a><a class="btn btn-ghost" href="mailto:Adarshtailor@icloud.com">Email</a></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer container" id="footer">© 2026 Adarsh Tailor. Hand-built, no frameworks.</footer>
+
+  <script src="data.js"></script>
+  <script src="render.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

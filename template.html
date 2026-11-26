@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="theme-color" content="#0a1014" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adarsh Tailor</title>
+  <meta name="description" content="What I’ve built, what I’m building, and notes along the way." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- index.html is generated from template.html + data.js by `node build.mjs`. Edit those, not index.html. -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="repo" id="repo"></a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="#now">Now</a>
+        <a href="#projects">Projects</a>
+        <a href="#notes">Notes</a>
+        <span id="nav-extra"></span>
+        <a href="#contact">Connect</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <div class="hero-left">
+        <div class="intro-row">
+          <span id="photo-slot"></span>
+          <p class="pill pill-status" id="status"></p>
+        </div>
+        <h1 id="name"></h1>
+        <p class="headline" id="headline"></p>
+        <p class="tagline" id="tagline"></p>
+        <div class="links contact-actions" id="links"></div>
+      </div>
+
+      <div class="console" aria-label="Ask about me">
+        <p class="console-bar">ask</p>
+        <form class="console-input" id="ask-form">
+          <span class="prompt" aria-hidden="true">&gt;</span>
+          <input id="ask-input" autocomplete="off" placeholder="Ask me something…" aria-label="Your question" />
+          <button type="submit" class="run">Ask</button>
+        </form>
+        <div class="suggestions" id="suggestions"></div>
+        <div class="console-out" id="ask-out" aria-live="polite"></div>
+        <p class="console-note">A tiny retrieval engine I wrote. It runs in your browser and answers from this site’s content.</p>
+      </div>
+    </section>
+
+    <div class="card-layout container">
+      <nav class="toc" aria-label="On this page">
+        <p class="toc-title">On this page</p>
+        <a href="#now">Now</a>
+        <a href="#about">About</a>
+        <a href="#skills-section">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#playground">Playground</a>
+        <a href="#notes">Notes</a>
+        <a href="#experience">Experience</a>
+        <a href="#roadmap-section">Roadmap</a>
+        <a href="#contact">Let’s connect</a>
+      </nav>
+
+      <div class="card-body">
+        <section id="now" class="section">
+          <h2>Now</h2>
+          <p class="sub" id="now-updated"></p>
+          <div class="now" id="now-list"></div>
+        </section>
+
+        <section id="about" class="section">
+          <h2>About</h2>
+          <p class="lead" id="about-text"></p>
+          <p class="lead" id="about-personal"></p>
+          <h3 class="group-title">What I like working on</h3>
+          <div class="roles" id="focus"></div>
+          <div class="background" id="background"></div>
+        </section>
+
+        <section id="skills-section" class="section">
+          <h2>Skills</h2>
+          <div class="skills" id="skills"></div>
+        </section>
+
+        <section id="projects" class="section">
+          <h2>Projects</h2>
+          <div class="filters" id="filters" role="group" aria-label="Filter projects by tag"></div>
+          <div class="evals" id="evals"></div>
+        </section>
+
+        <section id="playground" class="section">
+          <h2>Playground</h2>
+          <p class="sub">Small games and experiments.</p>
+          <div class="play-grid" id="playground-grid"></div>
+        </section>
+
+        <section id="notes" class="section">
+          <h2>Notes</h2>
+          <p class="sub" id="log-filter-label"></p>
+          <ol class="log" id="log"></ol>
+        </section>
+
+        <section id="experience" class="section">
+          <h2>Experience</h2>
+          <ol class="changelog" id="experience-list"></ol>
+        </section>
+
+        <section id="roadmap-section" class="section">
+          <h2>Roadmap</h2>
+          <p class="sub">What’s next.</p>
+          <ul class="roadmap" id="roadmap"></ul>
+        </section>
+
+        <section id="contact" class="section contact">
+          <h2>Let’s connect!</h2>
+          <p id="contact-blurb"></p>
+          <div class="contact-actions" id="connect-links"></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer container" id="footer"></footer>
+
+  <script src="data.js"></script>
+  <script src="render.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

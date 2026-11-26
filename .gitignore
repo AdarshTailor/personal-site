@@ -1,0 +1,9 @@
+# Private notes: stay on this computer, never published
+TODO.md
+PINCH_PLAN.md
+HALLMARK_AUDIT.md
+.hallmark/
+
+# Local tool settings
+.claude/
+.DS_Store
