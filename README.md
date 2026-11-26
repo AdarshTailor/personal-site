@@ -57,7 +57,7 @@ Then open http://localhost:8000.
 
 ## Live site
 
-**https://adarshtailor.com** (and www.adarshtailor.com), hosted on **Cloudflare Pages** (project `adarshtailor`, also at adarshtailor.pages.dev). Code lives in the GitHub repo `AdarshTailor/AdarshTailor.github.io`.
+**https://adarshtailor.com** (and www.adarshtailor.com), hosted on **Cloudflare Pages** (project `adarshtailor`, also at adarshtailor.pages.dev). Code lives in the GitHub repo `AdarshTailor/personal-site`.
 
 ### Publishing an update
 
