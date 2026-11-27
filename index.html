@@ -2,17 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="theme-color" content="#0a1014" />
+  <meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0b0e1d" media="(prefers-color-scheme: dark)" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Adarsh Tailor</title>
   <meta name="description" content="What I’ve built, what I’m building, and notes along the way." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <!-- index.html is generated from template.html + data.js by `node build.mjs`. Edit those, not index.html. -->
+  <div class="bg-fx" id="bg-fx" aria-hidden="true"></div>
   <header class="nav">
     <div class="container nav-inner">
       <a href="#top" class="repo" id="repo">adarshtailor</a>
@@ -34,7 +36,7 @@
           <p class="pill pill-status" id="status">Open to opportunities in DFW or remote</p>
         </div>
         <h1 id="name">hey, I’m Adarsh.</h1>
-        <p class="headline" id="headline">Builder. AI engineer at RTR. Learning game dev.</p>
+        <p class="headline" id="headline">Builder. AI engineer at RTR. Learning game dev and golf.</p>
         <p class="tagline" id="tagline">I build software people actually use. At work, that’s ERICS, the AI platform about 300 coworkers rely on. On my own time, it’s gesture-controlled windows, Unreal Engine, and small games. This site is where I keep track of all of it.</p>
         <div class="links contact-actions" id="links"><a class="btn btn-primary" href="https://www.linkedin.com/in/adarshtailor/" target="_blank" rel="noopener">LinkedIn</a><a class="btn btn-ghost" href="https://github.com/AdarshTailor" target="_blank" rel="noopener">GitHub</a><a class="btn btn-ghost" href="mailto:Adarshtailor@icloud.com">Email</a></div>
       </div>
@@ -70,13 +72,13 @@
         <section id="now" class="section">
           <h2>Now</h2>
           <p class="sub" id="now-updated">Updated 2026-11.</p>
-          <div class="now" id="now-list"><div class="now-item"><h3 class="k">Up next</h3><p>Pinch: projecting my desktop onto a wall and moving windows around by pinching in the air.</p></div><div class="now-item"><h3 class="k">Learning</h3><p>Unreal Engine, and building small games to try ideas quickly.</p></div><div class="now-item"><h3 class="k">At work</h3><p>Running and growing ERICS at Real Time Resolutions.</p></div><div class="now-item"><h3 class="k">Recently</h3><p>Graduated from UT Arlington (May 2026) and earned Azure AI Fundamentals (Oct 2026).</p></div></div>
+          <div class="now" id="now-list"><div class="now-item"><h3 class="k">Up next</h3><p>Pinch: projecting my desktop onto a wall and moving windows around by pinching in the air.</p></div><div class="now-item"><h3 class="k">Learning</h3><p>Unreal Engine, building small games to try ideas quickly, and golf.</p></div><div class="now-item"><h3 class="k">At work</h3><p>Running and growing ERICS at Real Time Resolutions.</p></div><div class="now-item"><h3 class="k">Recently</h3><p>Graduated from UT Arlington (May 2026) and earned Azure AI Fundamentals (Oct 2026).</p></div></div>
         </section>
 
         <section id="about" class="section">
           <h2>About</h2>
           <p class="lead" id="about-text">I’m a builder based in Dallas. I studied Information Systems at UT Arlington, started out in cybersecurity, and ended up building my company’s first AI platform. I like figuring out what people actually need, building it quickly, and owning it once it’s live, whether that’s an internal tool, a hardware experiment, or a small game.</p>
-          <p class="lead" id="about-personal"></p>
+          <p class="lead" id="about-personal">Outside of work, I’m picking up golf: range sessions, a lot of practice putts, and the occasional humbling round. There’s a putting green hidden somewhere on this site. Try typing “fore”.</p>
           <h3 class="group-title">What I like working on</h3>
           <div class="roles" id="focus"><div class="role"><h4>Tools people use every day</h4><p>Sitting with a team, finding the tedious part, and making it go away.</p></div><div class="role"><h4>AI &amp; automation</h4><p>Agents, search over documents, and the guardrails that make them trustworthy.</p></div><div class="role"><h4>Interactive &amp; 3D</h4><p>Gesture interfaces, small games, and learning Unreal Engine.</p></div><div class="role"><h4>Infrastructure &amp; security</h4><p>Linux, Kubernetes, monitoring, and keeping data where it belongs.</p></div></div>
           <div class="background" id="background"><dl class="kv"><dt>Education</dt><dd>B.S. Information Systems, The University of Texas at Arlington (May 2026). Before that: The University of Texas at Dallas (2018 to 2020).</dd><dt>Certifications</dt><dd>Microsoft Certified: Azure AI Fundamentals (AI-901), Oct 2026</dd><dt>Based in</dt><dd>Dallas-Fort Worth, open to on-site, hybrid, or remote</dd></dl></div>
@@ -168,7 +170,7 @@
         <section id="notes" class="section">
           <h2>Notes</h2>
           <p class="sub" id="log-filter-label">A running log.</p>
-          <ol class="log" id="log"><li><p class="when"><time>2026-10</time><span class="tag">cert</span></p><p>Earned Microsoft Certified: Azure AI Fundamentals (AI-901).</p></li><li><p class="when"><time>2026-05</time><span class="tag">milestone</span></p><p>Graduated with a B.S. in Information Systems from UT Arlington and went full-time at Real Time Resolutions.</p></li><li><p class="when"><time>2026</time><span class="tag">work</span></p><p>Moved ERICS from Llama 3.3 70B to Qwen 3.8 27B (dense), served with vLLM on a 96GB RTX PRO 6000 Blackwell.</p></li><li><p class="when"><time>2026</time><span class="tag">work</span></p><p>Moved ERICS from Docker Compose to k3s and added Prometheus monitoring and CI/CD.</p></li><li><p class="when"><time>2025-05</time><span class="tag">milestone</span></p><p>Started as a Cybersecurity Analyst Intern, pitched on-prem AI to leadership, and got $12K to build it.</p></li><li><button type="button" class="log-more" id="log-more">Show all 9 notes</button></li></ol>
+          <ol class="log" id="log"><li><p class="when"><time>2026-11</time><span class="tag">life</span></p><p>Picked up golf. Mostly the driving range and practice green for now, and a small putting game hidden on this site.</p></li><li><p class="when"><time>2026-10</time><span class="tag">cert</span></p><p>Earned Microsoft Certified: Azure AI Fundamentals (AI-901).</p></li><li><p class="when"><time>2026-05</time><span class="tag">milestone</span></p><p>Graduated with a B.S. in Information Systems from UT Arlington and went full-time at Real Time Resolutions.</p></li><li><p class="when"><time>2026</time><span class="tag">work</span></p><p>Moved ERICS from Llama 3.3 70B to Qwen 3.8 27B (dense), served with vLLM on a 96GB RTX PRO 6000 Blackwell.</p></li><li><p class="when"><time>2026</time><span class="tag">work</span></p><p>Moved ERICS from Docker Compose to k3s and added Prometheus monitoring and CI/CD.</p></li><li><button type="button" class="log-more" id="log-more">Show all 10 notes</button></li></ol>
         </section>
 
         <section id="experience" class="section">
@@ -211,5 +213,6 @@
   <script src="data.js"></script>
   <script src="render.js"></script>
   <script src="script.js"></script>
+  <script src="golf.js" defer></script>
 </body>
 </html>

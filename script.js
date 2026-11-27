@@ -241,6 +241,54 @@
 
   out.innerHTML = `<span class="meta"># indexed ${projects.length} projects, ${(d.log || []).length} notes, ${play.length} experiments</span>\nHi, I'm ${esc(d.name.split(" ")[0])}. Ask what I've built, what I'm working on, or what's next.`;
 
+  /* ---------------- BACKGROUND ----------------
+     The glow in .bg-fx eases toward the cursor. One pointer listener stores the target;
+     one rAF loop runs only while the glow is still catching up. Mouse/trackpad only:
+     touch and reduced-motion keep the static glow from styles.css. */
+  const fx = $("bg-fx");
+  const finePointer = matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (fx && finePointer && !reduceMotion) {
+    let x = innerWidth * 0.72, y = 180, tx = x, ty = y, raf = 0;
+    fx.classList.add("live");
+    const tick = () => {
+      x += (tx - x) * 0.08;
+      y += (ty - y) * 0.08;
+      fx.style.setProperty("--x", `${x.toFixed(1)}px`);
+      fx.style.setProperty("--y", `${y.toFixed(1)}px`);
+      raf = Math.abs(tx - x) + Math.abs(ty - y) > 0.5 ? requestAnimationFrame(tick) : 0;
+    };
+    addEventListener("pointermove", (e) => {
+      if (e.pointerType !== "mouse") return;
+      tx = e.clientX; ty = e.clientY;
+      fx.style.setProperty("--fx-on", "1");
+      if (!raf) raf = requestAnimationFrame(tick);
+    }, { passive: true });
+    // Fade out when the cursor leaves the window, back in when it returns.
+    document.documentElement.addEventListener("pointerleave", () => fx.style.setProperty("--fx-on", "0.35"));
+
+    // Card spotlight: each card gets the cursor position in its own coordinates.
+    const cardSel = ".console, .now-item, .role, .eval, .play, .roadmap li, .kv";
+    let cx = -999, cy = -999, spotRaf = 0;
+    const spot = () => {
+      spotRaf = 0;
+      for (const el of document.querySelectorAll(cardSel)) {
+        const r = el.getBoundingClientRect();
+        if (r.bottom < -300 || r.top > innerHeight + 300) continue;
+        el.style.setProperty("--mx", `${(cx - r.left).toFixed(0)}px`);
+        el.style.setProperty("--my", `${(cy - r.top).toFixed(0)}px`);
+      }
+    };
+    const queueSpot = () => { if (!spotRaf) spotRaf = requestAnimationFrame(spot); };
+    addEventListener("pointermove", (e) => {
+      if (e.pointerType !== "mouse") return;
+      cx = e.clientX; cy = e.clientY;
+      document.documentElement.style.setProperty("--spot-on", "1");
+      queueSpot();
+    }, { passive: true });
+    addEventListener("scroll", queueSpot, { passive: true });
+    document.documentElement.addEventListener("pointerleave", () => document.documentElement.style.setProperty("--spot-on", "0"));
+  }
+
   /* ---------------- TOC ---------------- */
   const tocLinks = [...document.querySelectorAll(".toc a")];
   const obs = new IntersectionObserver(
