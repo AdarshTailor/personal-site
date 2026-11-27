@@ -2,17 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="theme-color" content="#0a1014" />
+  <meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0b0e1d" media="(prefers-color-scheme: dark)" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Adarsh Tailor</title>
   <meta name="description" content="What I’ve built, what I’m building, and notes along the way." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <!-- index.html is generated from template.html + data.js by `node build.mjs`. Edit those, not index.html. -->
+  <div class="bg-fx" id="bg-fx" aria-hidden="true"></div>
   <header class="nav">
     <div class="container nav-inner">
       <a href="#top" class="repo" id="repo"></a>
@@ -130,5 +132,6 @@
   <script src="data.js"></script>
   <script src="render.js"></script>
   <script src="script.js"></script>
+  <script src="golf.js" defer></script>
 </body>
 </html>

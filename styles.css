@@ -7,39 +7,59 @@
 /* Hallmark · dropped nav-resume · now rendered inside #nav-extra so build.mjs can bake it; the same résumé link, shown when resumeUrl is set */
 /* Hallmark · dropped photo · now rendered inside #photo-slot so build.mjs can bake it; the same profile image with its alt text */
 
+/* Colors follow the visitor's system appearance (iOS / macOS / Android light or dark mode). */
 :root {
-  /* One theme: deep navy-black + electric cyan. Change --accent to recolor the site. */
-  --bg: #0a1014;
-  --surface: #0f171c;
-  --sunken: #131d23;
-  --text: #e6f0ee;
-  --muted: #9fb0ae;
-  --faint: #7f9294;
-  --border: #1e2b31;
-  --accent: #22d3ee;   /* ← the one color to change (electric cyan) */
-  --accent-soft: color-mix(in srgb, var(--accent) 16%, var(--bg));
-  --accent-line: color-mix(in srgb, var(--accent) 35%, var(--bg));
-  --accent-ink: #041316;            /* text on a solid accent fill */
+  /* Light: cool white + indigo. Change --accent to recolor the site. */
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --sunken: #eff1f8;
+  --text: #0f1530;
+  --muted: #4a5172;
+  --faint: #5c6383;
+  --border: #e0e4f0;
+  --accent: #4338ca;        /* indigo: 7.6:1 on white */
+  --accent-soft: #eceafd;
+  --accent-line: #c4c0f4;
+  --accent-ink: #ffffff;    /* text on a solid accent fill */
+  --glow: #8b8ff8;          /* background glow + effects */
   --focus: var(--accent);
   --good: var(--accent);
   --good-soft: var(--accent-soft);
+  --card-shadow: 0 1px 2px rgb(20 24 70 / .04);
 
-  /* The ask box */
-  --console: #060b0e;
-  --console-text: #e2ece9;
-  --console-bright: #f1fbfd;
-  --console-line: #17222a;
-  --console-edge: #1c2a33;
-  --console-muted: #9fb0ae;
-  --console-dim: #7f9294;
-  --console-chip: #0f1a20;
-  --console-chip-line: #22323b;
+  /* The ask box: the one deep-indigo surface, in both modes */
+  --console: #15193a; --console-text: #dfe2ff; --console-bright: #ffffff; --console-line: #262b55;
+  --console-edge: #2c3263; --console-muted: #a7acda; --console-dim: #8d93c4;
+  --console-chip: #1d2250; --console-chip-line: #353b70;
+  --console-glow: 0 40px 80px -40px rgb(30 30 110 / .55), 0 0 0 6px rgb(67 56 202 / .07);
 
-  --shadow: rgb(2 6 8 / 0.45);
-  --radius: 12px;
-  --font-body: "Inter", system-ui, -apple-system, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
-  color-scheme: dark;
+  --shadow: rgb(20 24 70 / .12);
+  --radius: 10px;
+  --font-body: "Geist", system-ui, -apple-system, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark: deep navy + soft indigo */
+    --bg: #0b0e1d;
+    --surface: #131731;
+    --sunken: #181d3b;
+    --text: #e8eaff;
+    --muted: #a9aed3;
+    --faint: #9097bf;
+    --border: #252a4b;
+    --accent: #a5a8ff;      /* 8.6:1 on the dark background */
+    --accent-soft: #1f2452;
+    --accent-line: #3e4486;
+    --accent-ink: #0f1530;
+    --glow: #5b5ff0;
+    --card-shadow: none;
+    --console: #10142e; --console-line: #232850; --console-edge: #343a72;
+    --console-chip: #191e46; --console-chip-line: #353b70;
+    --console-glow: 0 40px 80px -40px rgb(0 0 0 / .8), 0 0 0 6px rgb(165 168 255 / .06);
+    --shadow: rgb(0 0 0 / .45);
+  }
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -63,6 +83,34 @@ time, .metric dd, .rm-status { font-variant-numeric: tabular-nums; }
 /* Pressed and disabled */
 :where(.btn, .filter, .run, .suggestions button, .log-more):active { transform: translateY(1px); }
 button:disabled { opacity: .5; cursor: not-allowed; }
+
+/* BACKGROUND: a soft glow that eases toward the cursor (script.js, mouse only).
+   Without JS, on touch, or with reduced motion it rests as a static glow behind the hero. */
+.bg-fx {
+  --x: 72vw; --y: 180px; --fx-on: 1;
+  position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden;
+}
+/* the glow */
+.bg-fx::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(560px circle at var(--x) var(--y),
+    color-mix(in srgb, var(--glow) 13%, transparent),
+    color-mix(in srgb, var(--glow) 4%, transparent) 45%,
+    transparent 70%);
+  opacity: var(--fx-on); transition: opacity .6s ease;
+}
+
+/* CARD SPOTLIGHT: the edge of each card nearest the cursor picks up the accent.
+   script.js sets --mx/--my per card (pointer:fine only); otherwise nothing shows. */
+:where(.console, .now-item, .role, .eval, .play, .roadmap li, .kv) { position: relative; }
+:where(.console, .now-item, .role, .eval, .play, .roadmap li, .kv)::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;
+  background: radial-gradient(260px circle at var(--mx, -999px) var(--my, -999px),
+    color-mix(in srgb, var(--accent) 75%, transparent), transparent 70%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: var(--spot-on, 0); transition: opacity .4s ease;
+}
 
 /* NAV */
 .nav {
@@ -291,4 +339,58 @@ button:disabled { opacity: .5; cursor: not-allowed; }
   .console-out .cursor { animation: none; }
   .btn, .play, .eval { transition: none; }
   :where(.btn, .filter, .run, .suggestions button, .log-more):active, .play[href]:hover { transform: none; }
+}
+
+/* ================= LAYOUT: console-first hero (was variant B) =================
+   Short centered intro, then the ask box as the centerpiece: visitors can try the
+   retrieval engine right away. The rest of the page stays calm. */
+.repo { font-weight: 600; }
+
+/* HERO: centered intro, then the console as the centerpiece */
+.hero { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; gap: 40px; padding-top: 64px; padding-bottom: 80px; }
+.hero-left { display: flex; flex-direction: column; align-items: center; max-width: 680px; }
+.intro-row { justify-content: center; }
+.avatar { width: 72px; height: 72px; box-shadow: 0 0 0 2px var(--accent-line), 0 8px 24px -10px var(--shadow); }
+.pill { background: var(--surface); color: var(--muted); border: 1px solid var(--border); }
+.hero h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 650; letter-spacing: -.045em; line-height: 1.02; }
+.headline { color: var(--accent); font-weight: 500; font-size: 1.05rem; }
+.tagline { margin-inline: auto; max-width: 36em; font-size: 1.1rem; text-wrap: balance; }
+.links { justify-content: center; }
+
+.console {
+  width: min(880px, 100%); text-align: left; border-radius: 16px;
+  border: 1px solid var(--console-edge);
+  box-shadow: var(--console-glow);
+}
+.console-bar { font-size: .8rem; padding: 10px 20px; }
+.console-input { padding: 22px 20px 10px; }
+.console-input input { font-size: 1.15rem; }
+.prompt { color: #a5a8ff; font-size: 1.15rem; }
+.run { background: #6366f1; color: #fff; padding: 8px 16px; font-size: .85rem; border-radius: 8px; }
+.suggestions { padding: 8px 20px 16px; }
+.suggestions button { font-size: .8rem; padding: 6px 12px; }
+.suggestions button:hover { border-color: #8b8ff8; }
+.console-out { min-height: 180px; padding: 20px; font-size: .9rem; }
+.console-out .cursor { background: #a5a8ff; }
+.console-out .refs a { color: #c7c9ff; border-color: #3b4180; }
+.console-out .refs a:hover { background: #222858; }
+.console-note { padding: 12px 20px; }
+
+/* BUTTONS */
+.btn { border-radius: 10px; }
+.btn-ghost { background: var(--surface); }
+
+/* SECTIONS: quiet. Headings carry the weight, no extra decoration */
+.section { border-top-color: var(--border); }
+.section h2 { font-size: 1.7rem; font-weight: 650; letter-spacing: -.035em; }
+.now-item, .role, .eval, .play, .roadmap li, .kv { box-shadow: var(--card-shadow); }
+.now-item .k { color: var(--accent); }
+.eval h3 { font-weight: 650; letter-spacing: -.02em; font-size: 1.2rem; }
+.metric dd { color: var(--accent); }
+.filter.active { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.contact h2 { font-size: 2.2rem; }
+
+@media (max-width: 560px) {
+  .hero { padding-top: 40px; }
+  .console-input input, .prompt { font-size: 1rem; }
 }

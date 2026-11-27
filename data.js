@@ -9,7 +9,7 @@ window.PORTFOLIO = {
   name: "Adarsh Tailor",
   handle: "adarshtailor",
   status: "Open to opportunities in DFW or remote",
-  headline: "Builder. AI engineer at RTR. Learning game dev.",
+  headline: "Builder. AI engineer at RTR. Learning game dev and golf.",
   tagline:
     "I build software people actually use. At work, that's ERICS, the AI platform about 300 coworkers rely on. On my own time, it's gesture-controlled windows, Unreal Engine, and small games. This site is where I keep track of all of it.",
   email: "Adarshtailor@icloud.com", // shows an "Email" button next to LinkedIn and GitHub; "" to hide it
@@ -28,7 +28,7 @@ window.PORTFOLIO = {
   nowUpdated: "2026-11",
   now: [
     { k: "Up next", v: "Pinch: projecting my desktop onto a wall and moving windows around by pinching in the air." },
-    { k: "Learning", v: "Unreal Engine, and building small games to try ideas quickly." },
+    { k: "Learning", v: "Unreal Engine, building small games to try ideas quickly, and golf." },
     { k: "At work", v: "Running and growing ERICS at Real Time Resolutions." },
     { k: "Recently", v: "Graduated from UT Arlington (May 2026) and earned Azure AI Fundamentals (Oct 2026)." },
   ],
@@ -40,6 +40,7 @@ window.PORTFOLIO = {
   //  show up as that project's build log.
   // ----------------------------------------------------------
   log: [
+    { date: "2026-11", text: "Picked up golf. Mostly the driving range and practice green for now, and a small putting game hidden on this site.", tag: "life" },
     { date: "2026-10", text: "Earned Microsoft Certified: Azure AI Fundamentals (AI-901).", tag: "cert" },
     { date: "2026-05", text: "Graduated with a B.S. in Information Systems from UT Arlington and went full-time at Real Time Resolutions.", tag: "milestone" },
     { date: "2026", text: "Moved ERICS from Llama 3.3 70B to Qwen 3.8 27B (dense), served with vLLM on a 96GB RTX PRO 6000 Blackwell.", tag: "work" },
@@ -57,7 +58,7 @@ window.PORTFOLIO = {
   about:
     "I'm a builder based in Dallas. I studied Information Systems at UT Arlington, started out in cybersecurity, and ended up building my company's first AI platform. I like figuring out what people actually need, building it quickly, and owning it once it's live, whether that's an internal tool, a hardware experiment, or a small game.",
   // A line or two about you outside of tech: hobbies, what you're into. Shown under About.
-  aboutPersonal: "", // TODO: e.g. "Outside of work I'm into ..."
+  aboutPersonal: "Outside of work, I'm picking up golf: range sessions, a lot of practice putts, and the occasional humbling round. There's a putting green hidden somewhere on this site. Try typing \"fore\".",
   focus: [
     { title: "Tools people use every day", text: "Sitting with a team, finding the tedious part, and making it go away." },
     { title: "AI & automation", text: "Agents, search over documents, and the guardrails that make them trustworthy." },
